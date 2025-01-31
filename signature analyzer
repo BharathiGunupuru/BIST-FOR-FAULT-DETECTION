@@ -1,0 +1,16 @@
+module signalanalyzer(       //signature analyzer
+    input clk,
+    input reset,
+    input [7:0] OUT,
+    input ZERO,
+    output reg [7:0] signature
+);
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            signature <= 8'b0;
+        end else begin
+            // XOR-based LFSR for signature compression
+            signature <= {signature[6:0], signature[7] ^ OUT[0] ^ OUT[3] ^ ZERO};
+        end
+    end
+endmodule
