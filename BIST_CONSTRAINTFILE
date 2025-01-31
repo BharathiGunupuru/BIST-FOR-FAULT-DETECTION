@@ -1,0 +1,38 @@
+# === Clock Constraints ===
+# Define the clock period and waveform
+create_clock -period 10 -waveform {0 5} [get_pins clk]
+
+# === Input Constraints ===
+# Set input delays for inputs relative to the clock
+set_input_delay -clock [get_pins clk] 2 [get_ports {reset A B SEL computed_signature golden_signature FAULT_DETECTED}]
+
+# === Output Constraints ===
+# Set output delays for outputs relative to the clock
+set_output_delay -clock [get_pins clk] 2 [get_ports alu_OUT]
+set_output_delay -clock [get_pins clk] 2 [get_ports alu_ZERO]
+set_output_delay -clock [get_pins clk] 2 [get_ports comp_FAULT_DETECTED]
+set_output_delay -clock [get_pins clk] 2 [get_ports fault_signal]
+set_output_delay -clock [get_pins clk] 2 [get_ports test_signal]
+
+# === Pin Assignments ===
+# Assign ports to specific FPGA pins (adjust pin numbers for your board)
+set_property PACKAGE_PIN U16 [get_ports {clk}]
+set_property PACKAGE_PIN V17 [get_ports {reset}]
+set_property PACKAGE_PIN U17 [get_ports {A}]
+set_property PACKAGE_PIN V18 [get_ports {B}]
+set_property PACKAGE_PIN W17 [get_ports {SEL}]
+set_property PACKAGE_PIN W18 [get_ports {alu_OUT}]
+set_property PACKAGE_PIN W19 [get_ports {alu_ZERO}]
+set_property PACKAGE_PIN W13 [get_ports {computed_signature}]
+set_property PACKAGE_PIN V12 [get_ports {golden_signature}]
+set_property PACKAGE_PIN U12 [get_ports {FAULT_DETECTED}]
+set_property PACKAGE_PIN Y14 [get_ports {test_signal}]
+set_property PACKAGE_PIN W15 [get_ports {fault_signal}]
+
+# === Drive Strength and I/O Standard ===
+# Specify the I/O standard for signals (adjust for your board, e.g., LVCMOS33 for 3.3V)
+set_property IOSTANDARD LVCMOS33 [get_ports {clk reset A B SEL alu_OUT alu_ZERO computed_signature golden_signature FAULT_DETECTED fault_signal test_signal}]
+
+# === Clock Routing Override ===
+# Disable the clock dedicated route rule if necessary (use with caution)
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk_IBUF]
