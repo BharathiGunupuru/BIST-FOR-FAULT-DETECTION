@@ -20,7 +20,16 @@ BIST enables real-time, on-chip fault detection.
 ![image](https://github.com/user-attachments/assets/b8f9d4f9-23bc-455a-9997-b3fbfdfec803)
 
 # BIST block diagram
+
+The block diagram of the Built-In Self-Test (BIST) for an ALU consists of key components: a Pattern Generator, which provides test inputs to the ALU (Circuit Under Test - CUT); the ALU, which processes these inputs to produce output results; a Signature Analyzer, which compresses the output responses into a signature; and a Comparator, which verifies this computed signature against a predefined Golden Signature. If the signatures match, no fault is detected; otherwise, a fault is indicated
+
+![Image](https://github.com/user-attachments/assets/518593e7-7188-4b55-9f73-495ea91aea23)
+
 # BIST Schematic
+The schematic representation further details the interconnections between these blocks, illustrating the data flow from input test patterns to fault detection. It includes logic gates, multiplexers, and registers, showing how signals are processed within each stage. The schematic helps in hardware implementation and serves as a reference for FPGA deployment
+
+![Image](https://github.com/user-attachments/assets/4ebee9c8-670b-4153-9b75-d34b02d53f9b)
+
 
    
     
