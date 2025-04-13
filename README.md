@@ -30,6 +30,31 @@ The schematic representation further details the interconnections between these 
 
 ![Image](https://github.com/user-attachments/assets/4ebee9c8-670b-4153-9b75-d34b02d53f9b)
 
+# BIST Advantages
+Reduced Testing Cost:
+Eliminates the need for external Automatic Test Equipment (ATE), leading to cost savings in mass production.
+
+Improved Fault Coverage:
+Capable of detecting faults that might be missed during conventional testing, especially in hard-to-reach internal nodes.
+
+Faster Testing Time:
+On-chip test execution significantly reduces test time compared to traditional methods.
+
+Self-Test Capability:
+Enables systems to test themselves during operation or idle states, ensuring ongoing reliability.
+
+# BIST Disadvantages
+Power Overhead:
+The extra logic used for testing adds to the total power consumption, especially during test mode.
+
+Performance Penalty:
+Integration of BIST circuitry can introduce minor delays in signal paths or slightly impact system timing.
+
+Limited Fault Models:
+May not detect all types of complex faults (e.g., delay or analog faults) without specific enhancements.
+
+
+
 
    
     
