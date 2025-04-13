@@ -1,6 +1,6 @@
 module ALU(
-    input [3:0] A,
-    input [3:0] B,
+    input [7:0] A,
+    input [7:0] B,
     input [2:0] SEL,
     output reg [7:0] OUT,
     output  reg ZERO
