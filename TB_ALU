@@ -1,5 +1,5 @@
 module TB_ALU;
-    reg [3:0] A, B;      // Declare A and B as reg for procedural assignments
+    reg [7:0] A, B;      // Declare A and B as reg for procedural assignments
     reg [2:0] SEL;       // Declare SEL as reg
     wire [7:0] OUT;      // ALU output (wire)
     wire ZERO;           // Zero flag (wire)
