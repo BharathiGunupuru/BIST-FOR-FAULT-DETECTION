@@ -1,16 +1,17 @@
-module signalanalyzer(       //signature analyzer
-    input clk,
-    input reset,
-    input [7:0] OUT,
-    input ZERO,
+module signalanalyzer (
+    input wire clk, reset,
+    input wire [7:0] OUT,
+    input wire ZERO,
     output reg [7:0] signature
 );
-    always @(posedge clk or posedge reset) begin
+
+    parameter [7:0] golden_signature = 8'hA5;  // Set golden signature
+
+     always @(posedge clk or posedge reset) begin
         if (reset) begin
             signature <= 8'b0;
         end else begin
-            // XOR-based LFSR for signature compression
-            signature <= {signature[6:0], signature[7] ^ OUT[0] ^ OUT[3] ^ ZERO};
+            signature <= signature ^ OUT; // signature build-up using XOR
         end
     end
 endmodule
