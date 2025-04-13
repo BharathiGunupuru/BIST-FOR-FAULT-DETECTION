@@ -3,7 +3,7 @@ module BIST_ALU(
     input reset,
     output FAULT_DETECTED
 );
-    wire [3:0] A, B;
+    wire [7:0] A, B;
     wire [2:0] SEL;
     wire [7:0] OUT;
     wire ZERO;
